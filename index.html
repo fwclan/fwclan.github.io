@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <script src="script.js"></script>
+    <title>Отряд игровиков</title>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <img class="logo" src="logo.jpg" alt="">
+        </div>
+    </header>
+
+    <section class="game">
+        <h1>Шифр</h1>
+        <input class="input" id="cipher-from" type="text">
+        <br>
+        <button onclick="cipher()" type="submit">Зашифровать</button>
+        <p id="cipher-result"></p>
+    </section>
+
+    <section class="game">
+        <h1>Звёздочки</h1>
+        <input class="input" id="star-from" type="text">
+        <br>
+        <button onclick="star()" type="submit">Вставить звёздочки</button>
+        <p id="star-result"></p>
+    </section>
+
+    <section class="game">
+        <h1>Выбор темы</h1>
+        <button onclick="random_theme()" type="submit">Случайный выбор</button>
+        <p id="random-theme"></p>
+    </section>
+</body>
+</html>

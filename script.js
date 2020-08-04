@@ -3,22 +3,52 @@ function cipher()
 {
     var str = document.getElementById('cipher-from').value;
     var arr;
-    if (str.indexOf(" ") == -1)
+    var index = str.indexOf("(");
+
+    if (index == -1)
     {
-        arr = str.split("");
-        mix(arr);
-        str = arr.join("");
+        if (str.indexOf(" ") == -1)
+        {
+            arr = str.split("");
+            mix(arr);
+            str = arr.join("");
+        }
+        else
+        {
+            arr = str.split(" ");
+            for (let j = 0; j < arr.length; j++)
+            {
+                arr[j] = arr[j].split("");
+                mix(arr[j]);
+                arr[j] = arr[j].join("");
+            }
+            str = arr.join(" ");
+        }
     }
     else
     {
-        arr = str.split(" ");
-        for (let j = 0; j < arr.length; j++)
+        var explan = str.slice(index);
+        str = str.slice(0, index);
+                    
+        if (str.indexOf(" ") == -1)
         {
-            arr[j] = arr[j].split("");
-            mix(arr[j]);
-            arr[j] = arr[j].join("");
+            arr = str.split("");
+            mix(arr);
+            str = arr.join("");
         }
-        str = arr.join(" ");
+        else
+        {
+            arr = str.split(" ");
+            for (let j = 0; j < arr.length; j++)
+            {
+                arr[j] = arr[j].split("");
+                mix(arr[j]);
+                arr[j] = arr[j].join("");
+            }
+            str = arr.join(" ");
+        }
+
+        str = str.concat(" ", explan);
     }
 
     document.getElementById('cipher-result').innerHTML = str;
@@ -52,15 +82,15 @@ function build()
     }
     str = arr.join(" ");
 
-    let target1 = "—";
-    let target2 = "-";
-    if (str.indexOf(target1) != -1)
+    let trg1 = "—";
+    let trg2 = "-";
+    if (str.indexOf(trg1) != -1)
     {
-        str = str.replace(target1, " —");
+        str = str.replace(trg1, " —");
     }
-    if (str.indexOf(target2) != -1)
+    if (str.indexOf(trg2) != -1)
     {
-        str = str.replace(target2, " -");
+        str = str.replace(trg2, " -");
     }
 
     document.getElementById('build-result').innerHTML = str;
@@ -119,7 +149,7 @@ function star()
         arr[0] = first;
     }
     res = arr.join("");
-    
+
     document.getElementById('star-result').innerHTML = res;
 }
 

@@ -100,8 +100,9 @@ function build()
 function star()
 {
     var str = document.getElementById('star-from').value;
-    var first = str[0];
+    var before = document.getElementById('star-from').value;
     var index = str.indexOf("(");
+
     var res = str.toLowerCase();
     var arr = res.split("");
 
@@ -143,11 +144,15 @@ function star()
             }
         }
     }
-
-    if (arr[0] != "*")
+    
+    for (let k = 0; k < arr.length; k++)
     {
-        arr[0] = first;
+        if (arr[k] != before[k] && arr[k] != "*")
+        {
+            arr[k] = arr[k].toUpperCase();
+        }
     }
+
     res = arr.join("");
 
     document.getElementById('star-result').innerHTML = res;

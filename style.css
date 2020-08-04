@@ -9,13 +9,11 @@ body {
     height: 100%;
     min-height: 100%;
     background-color: azure;
-
-    overflow: hidden;
 }
 
 h1 {
     text-align: center;
-    background-color: rgb(207, 140, 231, 0.8);
+    background-color: rgba(140, 164, 231, 0.8);
 }
 
 .header-inner {

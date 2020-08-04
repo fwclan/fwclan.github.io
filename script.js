@@ -37,6 +37,35 @@ function mix(arr)
     }
 }
 
+// Построй предложение
+function build()
+{
+    var str = document.getElementById('build-from').value;
+    let arr = str.split(" ");
+    for (let i = 0; i < arr.length; i++)
+    {
+        var rnd1 = Math.floor(Math.random() * arr.length);
+        var rnd2 = Math.floor(Math.random() * arr.length);
+        var swap = arr[rnd1];
+        arr[rnd1] = arr[rnd2];
+        arr[rnd2] = swap;
+    }
+    str = arr.join(" ");
+
+    let target1 = "—";
+    let target2 = "-";
+    if (str.indexOf(target1) != -1)
+    {
+        str = str.replace(target1, " —");
+    }
+    if (str.indexOf(target2) != -1)
+    {
+        str = str.replace(target2, " -");
+    }
+
+    document.getElementById('build-result').innerHTML = str;
+}
+
 // Звёздочки
 function star()
 {

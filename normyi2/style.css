@@ -1,5 +1,5 @@
 body {
-    background-color: #ECE9E0;
+    background-color: #f8f7f4;
 }
 
 .header-inner {
@@ -46,20 +46,20 @@ td {
 
 #form-norms {
     margin: 5px 15px 20px 25px;
-    box-shadow: inset 0px 0px 8px 2px #7162c5;
-	background-color: #ab8cdd;
+
+	background-color: #b2a9ec;
 	border-radius: 10px;
-	border: 1px solid #333333;
+	border: 2px solid #dbdbdb;
 	display: inline-block;
-	color: #252525;
+	color: #161616;
 	font-size: 15px;
 	padding: 5px 16px;
-	text-decoration: none;
-	text-shadow: 0px 0px 0px #7f5cb8;
+    text-decoration: none;
+    transition: all 0.15s;
 }
 
 #form-norms:hover {
-    background-color: #c7b5e4;
+    background-color: #a896c3;
 }
 
 #form-norms:active {
@@ -68,13 +68,15 @@ td {
 }
 
 #norms {
-    color: #1b1b1b;
+    color: #383838;
     line-height: 1.4;
 }
 
 
 
 /*
+	text-shadow: 0px 0px 0px #a282d6;
+    box-shadow: inset 0px 0px 8px 2px #bfa7e6;
 
 
 #F5D7BF

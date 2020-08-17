@@ -47,7 +47,7 @@ td {
 #form-norms {
     margin: 5px 15px 20px 25px;
 
-	background-color: #e5e3f5;
+	background-color: #f4f3fa;
 	border-radius: 10px;
 	border: 2px solid #b2b0b4;
 	display: inline-block;
@@ -59,7 +59,7 @@ td {
 }
 
 #form-norms:hover {
-    background-color: #d8d3e0;
+    background-color: #cfcfcf;
 }
 
 #form-norms:active {

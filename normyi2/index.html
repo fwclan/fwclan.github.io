@@ -157,16 +157,16 @@
                   </tr>
                 </tbody>
             </table>
-
             <button id="form-norms" type="submit" value="Сформировать нормы">Сформировать нормы</button>
-
         </form>
 
         <script>
             document.getElementById('table-norms').addEventListener('submit', function(e) {
                 e.preventDefault();
                 var choices = document.querySelectorAll('input[type=radio]:checked');
-                document.getElementById('norms').innerHTML = "";
+                if (choices.length > 0)
+                {
+                  document.getElementById('norms').innerHTML = "";
                 document.getElementById('norms').innerHTML = '<b>' + "Нормы:" + '</b>' + '<br><ul>';
                 for (var i = 0; i < choices.length; i++)
                 {
@@ -174,9 +174,9 @@
                 }
                 document.getElementById('norms').innerHTML += '</ul>';
                 document.getElementById('norms').style = "padding: 25px;";
+                }
             });
         </script>
-
     </section>
 
     <section>

@@ -110,7 +110,7 @@
 Воспитатель: Имя (прочерк, если отсутствовал) <br>
 Опекающий: Имя (прочерк, если отсутствовал) <br>
 Баллы <br>
-<span v-for="cat in kit">{{ cat.id }} - {{ cat.points.reduce((a, c) => parseInt(a) + parseInt(c)) }} <br> </span>
+<span v-for="cat in kit" v-if="cat.points.reduce((a, c) => parseInt(a) + parseInt(c)) !== 0">{{ cat.id }} - {{ cat.points.reduce((a, c) => parseInt(a) + parseInt(c)) }} <br> </span>
 </span>
     </div>
 </section>

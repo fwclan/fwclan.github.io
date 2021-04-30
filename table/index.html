@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчёт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" charset="utf-8"></script>
+    <script src="js.js" charset="utf-8"></script>
+
+    <style type="text/css">
+        td {
+            border: black 1px solid;
+        }
+
+        table {
+            border-spacing: 0px;
+            border-collapse: collapse;
+
+            margin-left: 35%;
+        }
+
+        .points {
+            border: 0px;
+            background-color: azure;
+        }
+
+        body {
+            margin: 0 auto;
+
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #333;
+
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            background-color: azure;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: rgba(140, 164, 231, 0.8);
+        }
+
+        .header-inner {
+            display: block;
+            text-align: center;
+        }
+
+        .game {
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <img class="logo" src="logo.jpg" alt="">
+    </div>
+</header>
+
+<section class="game">
+    <h1>Составитель отчётов</h1>
+    <div class="cats">
+        <table>
+            <tbody>
+            <tr>
+                <td>Котёнок</td>
+                <td>ID</td>
+                <td v-for="game in games">
+                    {{ game.name }}
+                </td>
+                <td>Результат</td>
+            </tr>
+            <tr v-for="cat in kit">
+                <td>
+                    <input class="points" v-model="cat.name" value="cat.name" size="15">
+                </td>
+                <td>
+                    <input class="points" v-model="cat.id" value="cat.id" size="11">
+                </td>
+                <td v-if="games.length !== 0" v-for="game in games">
+                    <input class="points" v-model="cat.points[games.indexOf(game)]" size="3">
+                </td>
+                <td>
+                    {{ cat.points.reduce((a, c) => parseInt(a) + parseInt(c)) }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        Игру - <input type="text" size="30" class='game_name' placeholder="Название игры"> <span class="addGame"
+                                                                                                 style="font-size: 20px; color: red; cursor: pointer;">+</span>
+        <br>
+        Котёнка - <input type="text" size="15" class='cat_name' placeholder="Имя"> <input type="text" size="11"
+                                                                                          class='cat_id'
+                                                                                          placeholder="ID"> <span
+            class="addCat" style="font-size: 20px; color: red; cursor: pointer;">+</span>
+        <br>
+        <br>
+        ОТЧЕТ: <br>
+        <span class="final">
+Дата: дд.мм.гг <br>
+Игру провёл: Имя|Айди <br>
+Совместка: Имя|Айди (прочерк, если в одиночку) <br>
+Количество игр: {{ games.length }} <br>
+Воспитатель: Имя (прочерк, если отсутствовал) <br>
+Опекающий: Имя (прочерк, если отсутствовал) <br>
+Баллы <br>
+<span v-for="cat in kit">{{ cat.id }} - {{ cat.points.reduce((a, c) => parseInt(a) + parseInt(c)) }} <br> </span>
+</span>
+    </div>
+</section>
+</body>
+</html>
